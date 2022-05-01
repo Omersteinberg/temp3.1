@@ -18,9 +18,11 @@ void setup()
 
 void loop() 
 {
-        float temp = dht.getTempCelcius();
+    float temp = dht.getTempCelcius();
         
-        Particle.publish("temp", String(temp), PRIVATE);
-        delay(30000);
-
+    //Publishes the temperature value recorded by the sensor onto the console
+    Particle.publish("temp", String(temp), PRIVATE);
+ 
+    //waits 30 seconds before repeating the loop and publishing the next temperature value recorded
+    delay(30000);
 }
